@@ -8,6 +8,7 @@ Los lenguajes utilizados son [CoffeeScript](http://coffeescript.org/),
 ## Para empezar
 
 Clona el repositiorio y ejecuta `npm install` para instalar las dependencias.
+
 Para correr el servidor de prueba ejecuta `npm start`.
 
 ## Sincronizar con el servidor
@@ -55,7 +56,7 @@ Para publicar todos los cambios en el servidor de uSpeak hay que instalar [Fabri
 
 * `config.coffee` contiene la configuración de la app. 
 * `app/assets` contiene las imágenes / ficheros estáticos. Los contenidos se copiarán en `build/` sin cambios ni optimizaciones.
-Los otros subdirectorios de `app/` podrían contener archivos que serán compilados. Los lenguajes que se compilan a Javascript (coffeescript, roy etc.), o los archivos js **se incluirán automáticamente en el módulo** y pueden ser cargados vía  `require('module/location')`.
+* Los otros subdirectorios de `app/` pueden contener archivos que deben compilarse. Los lenguajes que se compilan a Javascript (coffeescript, roy etc.), o los archivos js **se incluirán automáticamente en el módulo** y pueden ser cargados vía  `require('module/location')`.
 * `app/models` contiene los modelos de la aplicación (utilizando `Resources`, inspirado en AngularJS Resources).
 * `app/controllers` contiene los controladores de la aplicación.
 * `app/views` contiene las vistas, que serán renderizadas con `Handlebars`.
@@ -74,4 +75,4 @@ Frameworks utilizados:
 * FontAwesome 1.0
 * Fabric
 
-El uso de esta aplicación está restringido a la empresa `uSpeak` y sus trabajadores.
+El uso de esta aplicación está restringido al entorno `uSpeak`.
