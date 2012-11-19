@@ -1,3 +1,5 @@
 node_modules
 public/*
 *.pyc
+npm-debug.log
+.DS_Store
