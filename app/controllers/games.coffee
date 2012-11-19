@@ -8,5 +8,9 @@ class Games extends Spine.Stack
     '/play/whichone': 'whichone'
     '/play/flipcards': 'flipcards'
     '/play/fatfingers': 'fatfingers'
+  
+  deactivate: ->
+    super
+    @manager.deactivate()
 
 module.exports = Games

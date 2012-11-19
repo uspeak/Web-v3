@@ -22,6 +22,7 @@ class Game extends Spine.Controller
     super
   
   reset: ->
+    @log 'RESETING'
     @round = null
     @status.hide()
     @header.hide()
@@ -32,6 +33,7 @@ class Game extends Spine.Controller
   deactivate: ->
     super
     @reset()
+    @el.empty()
 
   loaded: (data) =>
     @setData data[0]
@@ -53,7 +55,7 @@ class Game extends Spine.Controller
         @finish()
     
     @animateRoundOut @rounds.eq(@round) if @round != null
-    if typeof round isnt "undefined"
+    if typeof round != "undefined"
       @animateRoundIn @rounds.eq(round)
       @round = round
       @$round = @rounds.eq(@round)
