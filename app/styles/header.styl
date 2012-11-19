@@ -1,0 +1,25 @@
+@import 'nib'
+@import '_vars'
+@import '_ribbon'
+
+header#main-header
+    height 70px
+    background url(../images/background-logo.png) no-repeat center center
+
+#header-logged
+    @extends .ribbon
+    box-shadow:0px 3px 8px rgba(0,0,0,0.2);
+    display: block
+    width:100%
+    height: 100%
+    position: relative
+    bottom:100%
+    height 61px
+    span
+        font-family header-font
+
+    .button-logout
+        @extends .ribbon-button
+        margin 4px 12px
+        float: right
+        font-size 14px

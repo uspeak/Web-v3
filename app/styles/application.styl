@@ -1,0 +1,50 @@
+// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+// No more vendor prefixes. http://visionmedia.github.com/nib/
+@import 'nib'
+@import '_vars'
+@import '_buttons'
+@import '_forms'
+
+// Apply a natural box layout model to all elements.
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
+*
+  box-sizing: border-box
+
+html
+    // background black
+    height: 100%
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+body
+    font-family main-font
+    // margin 0 auto
+    width: 100%
+    height: 100%
+    // width: 760px
+    // height: 760px
+    background #CEDBDE
+    background url(../images/background.png) center center
+    overflow: hidden
+    // position: relative
+
+.wide-screen
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: block
+    overflow: hidden
+
+
+#uspeak-logo
+    margin:0 auto
+    width:160px
+    display: block
+
+h1, h2
+    font-family header-font
+    font-weight normal
+
+.stack > *:not(.active)
+  display none

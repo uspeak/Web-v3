@@ -1,0 +1,73 @@
+@import 'nib'
+@import 'application'
+@import '_ribbon'
+@import '_vars'
+
+.games
+    @extends .wide-screen
+    user-select: none
+.game
+    @extends .wide-screen
+    display none
+    .round, .help
+        font-family write-font
+        display block
+        
+    .word
+        color white
+        font-size 3.5em
+        display block
+        font-weight 700
+        text-shadow 0 1px 4px rgba(0,0,0,.6)
+        
+    &.active
+        display block
+    header
+        @extends .ribbon
+        background: url(/images/ribbon-sewn.png) repeat-x 0 55px, linear-gradient(top,rgb(98,171,207),rgb(77,157,195))
+        position relative
+        box-shadow:0px 1px 8px rgba(0,0,0,0.2);
+        font-family header-font
+        height 61px
+        line-height 38px
+        padding-left 20px
+        padding-right 10px
+        .points
+            float left
+            font-size .8em
+            b
+                font-weight normal
+                opacity .5
+        .lifes
+            float right
+            list-style none
+        .time
+            font-size 1.3em
+            line-height 35px
+            width 110px
+            text-align left
+            display inline-block
+            b
+                font-weight normal
+                opacity .5
+
+.rounds
+    position absolute
+    top 60px
+    left 0
+    right 0
+    bottom 40px
+
+    >*
+        position absolute
+        top 0
+        left 0
+        display none
+        width 100%
+        height 100%
+    >.active
+        display table
+.auto-center
+    display table-cell
+    vertical-align middle
+    text-align center

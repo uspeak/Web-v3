@@ -1,0 +1,21 @@
+<div class="rounds">
+	{{#each rounds}}
+	<div><div class="auto-center">
+		<div class="round">Round {{round}}/{{../rounds.length}}</div>
+		<span class="word">{{word}}</span>
+		<ul class="cards">
+			{{#each choices}}
+			<li class="card" data-word="{{id}}">
+				<span class="front"></span>
+				{{#if word}}
+					<span class="back">{{word}}</span>
+				{{/if}}
+				{{#if match}}
+            		<img class="back" src="{{match}}"/>
+				{{/if}}
+			</li>
+			{{/each}}
+		</ul>
+	</div></div>
+	{{/each}}
+</div>

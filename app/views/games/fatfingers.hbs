@@ -1,0 +1,26 @@
+<div class="rounds">
+	{{#each rounds}}
+	<div><div class="auto-center">
+		<div class="round">Round {{round}}/{{../rounds.length}}</div>
+		<span class="help">Which option is correct?</span>
+		{{#if_in ../variation compare="1,20,21,22,23"}}
+		<span class="word">{{word}}</span>
+		{{/if_in}}
+		{{#if_eq ../variation compare=2}}
+		<img class="image" src="{{word}}">
+		{{/if_eq}}
+		<div class="type">
+			{{#each match}}
+			<span data-expect="{{this}}"></span>
+			{{/each}}
+		</div>
+		<div class="letters">
+			{{#each match_shuffled}}
+			<a class="letter">
+				{{this}}
+			</a>
+			{{/each}}
+		</div>
+	</div></div>
+	{{/each}}
+</div>

@@ -1,0 +1,17 @@
+<div class="rounds">
+	{{#each rounds}}
+	<div><div class="auto-center">
+		<div class="round">Round {{round}}/{{../rounds.length}}</div>
+		<span class="help">Which option is correct?</span>
+		<span class="word">{{word}}</span>
+		<ul class="choices">
+			{{#each choices}}
+			<li class="note{{#if correct}} correct{{/if}}">
+				<i class="{{#if correct}}icon-ok{{else}}icon-remove{{/if}}"></i>
+				{{word}}
+			</li>
+			{{/each}}
+		</ul>
+	</div></div>
+	{{/each}}
+</div>

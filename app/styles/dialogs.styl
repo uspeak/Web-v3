@@ -1,0 +1,68 @@
+@import 'nib'
+@import '_ribbon'
+@import 'application'
+
+.dialog-stack
+    // z-index 100
+    @extends .wide-screen
+
+.dialog
+  width: 260px
+  margin: 5px auto
+  padding 20px 0
+  top:50%
+  left: 50%
+  margin-left: -130px
+  margin-bottom: 0.5em
+  color: #fff
+  border-radius: 5px
+  position absolute
+  background-color #4276b6
+  background url(/images/woodsy-light-top.png) repeat-x top left, url(/images/woodsy.jpg) repeat
+  box-shadow 0 2px 7px rgba(0,0,0,.75), inset 0 -10px 20px rgba(0,0,0,.1)
+  transform-origin center center
+  h2
+    @extends .ribbon
+    border-radius 1px 1px 0 0
+    box-shadow inset 0 6px 12px rgba(255,255,255,.1), 0px 8px 16px rgba(0,0,0,0.35);
+    margin-right -10px
+    margin-left -10px 
+    margin-bottom 4px
+    margin-top 0
+    position relative
+
+    &:after, &:before
+        position absolute
+        z-index -1
+        border-width: 10px
+        border-style: solid
+        border-color:  transparent
+        content ''
+        width: 0
+        height: 0
+        bottom:-10px
+        display block
+
+    &:after
+        border-right-color #234455
+        left: -10px
+
+    &:before
+        border-left-color #234455
+        right: -10px
+  p, form
+    margin: 1em
+
+  .field
+    padding: 0
+    margin: 0
+  
+  p
+    color: #5A4836
+    font-size 16px
+    opacity .9
+    line-height 1.2
+    text-shadow:0px 1px 0px rgba(255,255,255,0.38)
+    a
+      color: @color
+      text-decoration: none

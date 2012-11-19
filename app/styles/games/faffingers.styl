@@ -1,0 +1,46 @@
+@import 'nib'
+@import '../_vars'
+
+.game-fatfingers
+    .letters
+        margin .5em auto
+        max-width 520px
+        padding 0
+    .letter
+        font-family write-font
+        // font-weight 700
+        display inline-block
+        text-transform uppercase
+        color #656052
+        width 70px
+        height 70px
+        line-height @width
+        font-size 24px
+        position relative
+        // border-radius 50%
+        background url(../images/games/fatfingers/key.png) no-repeat
+        &.active
+            top:5px
+    .type
+        display inline-block
+        background white
+        box-shadow inset 0 1px 4px rgba(0,0,0,.4)
+        padding 10px
+        margin 20px
+        line-height 35px
+        >*
+            display inline-block
+            font-size 42px
+            text-align center
+            height 36px
+            width 32px
+        
+    .image
+        background: white;
+        padding: 10px 7px 36px;
+        width: 230px
+        height: 210px
+        display: block;
+        transform: rotate(-5deg);
+        box-shadow 0 2px 6px rgba(0,0,0,.35)
+        margin 20px auto
