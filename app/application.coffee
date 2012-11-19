@@ -11,15 +11,17 @@ class App extends Spine.Stack
     home: Home
     dialogs: Dialogs
     games: Games
-    
+
   constructor: ->
     super
-    @log "Well, hello there."
+    @route "/", => 
+        console.log('asfsadf')
+        @navigate("/home")
+
     @user = new User()
     @user.setToken('testtoken')
     # @header = new Header()
     @loading = new Loading()
-
     # @dialogs.el.add(@header.el).add(@loading.el).hide()
     # @games = new Games()
     # @games.el.hide()
@@ -28,8 +30,18 @@ class App extends Spine.Stack
     # @dialogs = new Dialogs()
     # @dialogs.el.hide()
     @append @loading
+    @initConfig()
 
+  initConfig: ->
     Spine.Route.setup
       history: true
+    Spine.Model.host = 'http://v4.uspeakapp.com/';
+    $ = @$
+    $('a').live 'click', ->
+        Spine.Route.navigate($(@).attr('href'));
+        false
+    soundManager.setup
+        url: '/swf/',
+        preferFlash: false
     
 module.exports = App

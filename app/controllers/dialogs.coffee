@@ -106,7 +106,7 @@ class Dialogs extends Spine.Stack
 
   line: [DialogMain, DialogDiagnostic, DialogLogin, DialogRecover]
   routes:
-    '/':      'main'
+    # '/':      'main'
     '/diagnostic': 'diagnostic'
     '/login': 'login'
     '/recover': 'recover'

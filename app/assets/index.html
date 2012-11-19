@@ -14,16 +14,7 @@
         var exports = this;
         $(function(){
             var App = require("application");
-            Spine.Model.host = 'http://v3.uspeakapp.com/';
             exports.app = new App({el: $("body")});
-            $('a').on('click',function() {
-                Spine.Route.navigate($(this).attr('href'));
-                return false;
-            })
-        });
-        soundManager.setup({
-            url: '/swf/',
-            preferFlash: false
         });
     </script>
 </head>

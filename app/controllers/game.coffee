@@ -1,6 +1,7 @@
 GamesResource = require 'models/games'
 GameHeader = require 'controllers/game.header'
 GameStatus = require 'controllers/game.status'
+GameMenu = require 'controllers/game.menu'
 Utils = require 'utils'
 
 class Game extends Spine.Controller
@@ -13,6 +14,7 @@ class Game extends Spine.Controller
     @resource = new GamesResource()
     @resource.bind 'game:loaded', @loaded
     @header = new GameHeader()
+    @menu = new GameMenu()
     @status = new GameStatus()
 
   activate: ->
@@ -26,7 +28,8 @@ class Game extends Spine.Controller
     @round = null
     @status.hide()
     @header.hide()
-    if @timer
+    @menu.hide()
+    if typeof @timer != "undefined"
       @timer.pause()
       delete @timer
 
@@ -85,7 +88,6 @@ class Game extends Spine.Controller
     @points = 0
     @header.setSeconds seconds
     @header.setPoints 0
-    @header.show()
     @timer = new Utils.TimerInterval => 
       seconds--
       @header.setSeconds seconds
@@ -95,8 +97,9 @@ class Game extends Spine.Controller
     , 1000
 
     @html require(@template)(@context())
-    @prepend @header
-    @append @status
+    @prepend @header, @status, @menu
+    @header.show()
+    @menu.show()
     @goRound 0
 
 module.exports = Game

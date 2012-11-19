@@ -78,6 +78,7 @@ class GameHeader extends Spine.Controller
       if s >= 4
         timer.pause()
     , 120
+  
   setSeconds: (@seconds) ->
     # @render() 
     # if not @secondSound
