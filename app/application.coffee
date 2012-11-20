@@ -32,6 +32,7 @@ class App extends Spine.Stack
         href = $(@).attr('href')
         Spine.Route.navigate href if href
         false
+    $(document).on("touchmove", (e) -> .preventDefault())
     soundManager.setup
         url: '/swf/',
         preferFlash: false
