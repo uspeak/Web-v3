@@ -2,9 +2,25 @@
 	{{#each rounds}}
 	<div><div class="auto-center">
 		<div class="round">Round {{round}}/{{../rounds.length}}</div>
-		<span class="help">Which option is correct?</span>
+		<span class="help">
+			{{#if_eq ../variation compare=1}}
+			Elige la traducción correcta.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=2}}
+			¿Qué palabra corresponde a la imagen?
+			{{/if_eq}}
+			{{#if_eq ../variation compare=21}}
+			Elige el sinónimo correcto.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=22}}
+			Elige el antónimo correcto.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=26}}
+			Elige la palabra que corresponda a la traducción.
+			{{/if_eq}}
+		</span>
 		<div class="word-container">
-			{{#if_in ../variation compare="1,20,21,22,23,26"}}
+			{{#if_in ../variation compare="1,21,22,26"}}
 			<span class="word">{{word}}</span>
 			{{/if_in}}
 			{{#if_eq ../variation compare=2}}

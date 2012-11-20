@@ -2,7 +2,23 @@
 	{{#each rounds}}
 	<div><div class="auto-center">
 		<div class="round">Round {{round}}/{{../rounds.length}}</div>
-		<span class="word">{{word}}</span>
+		<span class="help">
+			{{#if_eq ../variation compare=1}}
+			Empareja cada palabra con su traducción.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=2}}
+			Empareja cada palabra con su representación.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=20}}
+			Empareja cada palabra con su otro género.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=21}}
+			Empareja sinónimos.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=22}}
+			Empareja antónimos.
+			{{/if_eq}}
+		</span>
 		<ul class="cards">
 			{{#each choices}}
 			<li class="card" data-word="{{id}}">

@@ -15,7 +15,6 @@ class App extends Spine.Stack
   constructor: ->
     super
     @route "/", => 
-        console.log('asfsadf')
         @navigate("/home")
 
     @user = new User()

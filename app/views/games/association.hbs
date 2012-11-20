@@ -2,10 +2,26 @@
 	{{#each rounds}}
 	<div><div class="auto-center">
 		<div class="round">Round {{round}}/{{../rounds.length}}</div>
-		<span class="help">Which option is correct?</span>
+		<span class="help">
+			{{#if_eq ../variation compare=1}}
+			Elige la traducción correcta.
+			{{/if_eq}}
+			{{#if_eq ../variation compare=2}}
+			¿Qué palabra corresponde a la imagen?
+			{{/if_eq}}
+			{{#if_in ../variation compare="9,26"}}
+			Sigue la pista y elige la palabra correcta.
+			{{/if_in}}
+			{{#if_eq ../variation compare=10}}
+			¿Qué palabra corresponde a esta definición?
+			{{/if_eq}}
+		</span>
 		<div class="word-container">
-			{{#if_in ../variation compare="1,20,21,22,23"}}
+			{{#if_eq ../variation compare=1}}
 			<span class="word">{{word}}</span>
+			{{/if_eq}}
+			{{#if_in ../variation compare="9,10,26"}}
+			<span class="hint">{{word}}</span>
 			{{/if_in}}
 			{{#if_eq ../variation compare=2}}
 			<img class="image" src="{{word}}">
