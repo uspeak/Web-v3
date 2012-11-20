@@ -1,0 +1,58 @@
+<div class="rounds">
+	{{#each rounds}}
+	<div><div class="auto-center">
+		<div class="round">Round {{round}}/{{../rounds.length}}</div>
+		<span class="help">
+			{{#if_eq ../variation compare=12}}
+			human_or_not
+			{{/if_eq}}
+			{{#if_eq ../variation compare=13}}
+			concrete
+			{{/if_eq}}
+			{{#if_eq ../variation compare=14}}
+			touch
+			{{/if_eq}}
+			{{#if_eq ../variation compare=15}}
+			see
+			{{/if_eq}}
+			{{#if_eq ../variation compare=16}}
+			buy
+			{{/if_eq}}
+			{{#if_eq ../variation compare=17}}
+			animate
+			{{/if_eq}}
+			{{#if_eq ../variation compare=18}}
+			weight
+			{{/if_eq}}
+			{{#if_eq ../variation compare=23}}
+			e500_ago
+			{{/if_eq}}
+			{{#if_eq ../variation compare=28}}
+			gender_fem
+			{{/if_eq}}
+			{{#if_eq ../variation compare=29}}
+			part_speech_verbs
+			{{/if_eq}}
+			{{#if_eq ../variation compare=30}}
+			gender_mas
+			{{/if_eq}}
+			{{#if_eq ../variation compare=31}}
+			part_speech_noun
+			{{/if_eq}}
+		</span>
+		<div class="word-container">
+			<span class="word">{{word}}</span>
+		</div>
+		<ul class="choices">
+			<li class="note{{#if correct}} correct{{/if}}">
+				<i class="{{#if correct}}icon-ok{{else}}icon-remove{{/if}}"></i>
+				Yes
+			</li>
+			<li class="note{{#unless correct}} correct{{/unless}}">
+				<i class="{{#unless correct}}icon-ok{{else}}icon-remove{{/unless}}"></i>
+				No
+			</li>
+		</ul>
+	</div></div>
+	{{/each}}
+</div>
