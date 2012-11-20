@@ -36,7 +36,6 @@ class User extends Resource
     Spine.Ajax.defaults.headers['Authorization'] = @getHeader token
   
   loginSuccess: (user, data) ->
-    # console.log arguments
     @setToken data.res
     @username = data.username
     @trigger 'login'

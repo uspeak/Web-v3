@@ -59,6 +59,7 @@ class FlipCards extends Game
                 perspective: '400px',
                 rotateY: '0'
             )
+            @addPoints(100)
         else
            el.add(@selectedCard).find('.back').css(@styles.wrong).transition(@styles.normal)
         delete @selectedCard

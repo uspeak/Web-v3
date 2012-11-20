@@ -37,6 +37,7 @@ class FatFingers extends Game
       el.addClass('completed')
       el.stop().transition opacity:0, =>
         if nextType.next().length == 0
+          @addPoints(100)
           @goRound(@round+1)
     else
       nextType.css(color:'red').stop().transition(opacity:0)

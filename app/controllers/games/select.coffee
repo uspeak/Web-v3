@@ -15,8 +15,9 @@ class Select extends Game
 
   choose: (e) ->
     return if not @canChoose
-    @addPoints(100)
-    $(e.target).find('i').show().css(scale:0).transition scale:1, 200,
+    el = $(e.target)
+    @addPoints(100) if el.is('.correct')
+    el.find('i').show().css(scale:0).transition scale:1, 200,
       => setTimeout (=> @goRound(@round+1)), 340
     @canChoose = false
     
