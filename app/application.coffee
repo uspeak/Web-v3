@@ -25,11 +25,12 @@ class App extends Spine.Stack
 
   initConfig: ->
     Spine.Route.setup
-      history: true
+      history: false
     Spine.Model.host = 'http://v4.uspeakapp.com/'
     $ = @$
     $('a').live 'click', ->
-        Spine.Route.navigate $(@).attr('href')
+        href = $(@).attr('href')
+        Spine.Route.navigate href if href
         false
     soundManager.setup
         url: '/swf/',

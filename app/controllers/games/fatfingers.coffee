@@ -9,7 +9,8 @@ class FatFingers extends Game
     'keyup .letter': 'deactivateLetter'
     'mouseup .letter': 'deactivateLetter'
     'mousedown .letter': 'activateLetter'
-
+    'touchmove .letter': 'activateLetter'
+    'touchend .letter': 'deactivateLetter'
   constructor: ->
     super
     @$(document).bind 'keypress', (e) => @keypress(e)
