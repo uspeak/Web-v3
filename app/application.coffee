@@ -20,15 +20,7 @@ class App extends Spine.Stack
 
     @user = new User()
     @user.setToken('testtoken')
-    # @header = new Header()
     @loading = new Loading()
-    # @dialogs.el.add(@header.el).add(@loading.el).hide()
-    # @games = new Games()
-    # @games.el.hide()
-    # @home = new Home()
-    # @home.el.hide()
-    # @dialogs = new Dialogs()
-    # @dialogs.el.hide()
     @append @loading
     @initConfig()
 
