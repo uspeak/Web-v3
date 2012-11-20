@@ -24,7 +24,7 @@ class User extends Resource
 
   getHeader: (username, password) ->
     password or= ""
-    auth = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse("#{username}:#{password}"))
+    auth = Base64.encode64("#{username}:#{password}")
     "Basic #{auth}"
 
   login: (username, password) ->
