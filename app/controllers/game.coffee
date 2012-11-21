@@ -5,6 +5,7 @@ GameMenu = require 'controllers/game.menu'
 Utils = require 'utils'
 
 class Game extends Spine.Controller
+  @extend(Spine.Events)
   elements:
     '.rounds>*':'rounds'
 
@@ -18,6 +19,7 @@ class Game extends Spine.Controller
     @status = new GameStatus()
     @status.bind 'gameover:show', => @onFinish()
     @status.bind 'finish:show', => @onFinish()
+    @menu.bind 'pause', => @pause()
 
   activate: ->
     # @reset()
@@ -40,6 +42,21 @@ class Game extends Spine.Controller
     @reset()
     @el.empty()
 
+  pause: ->
+    @log 'PRESSED PAUSE'
+    @paused = !@paused
+    if @paused 
+      @timer.pause()
+      @header.hide()
+      @rounds.transition(opacity:0)
+      @status.show('pause')
+    else
+      @timer.resume()
+      @header.show()
+      @rounds.transition(opacity:1)
+      @status.hide()
+
+
   loaded: (data) =>
     @setData data[0]
 
@@ -49,7 +66,7 @@ class Game extends Spine.Controller
   onFinish: ->
     setTimeout =>
       @navigate '/'
-    , 840
+    , 1500
 
   animateRoundOut: (el) ->
     return if not el?.length

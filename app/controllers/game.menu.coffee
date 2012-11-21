@@ -1,5 +1,7 @@
 class GameStatus extends Spine.Controller
   className: 'menu'
+  events:
+    'tap .pause':'pause'
   constructor: ->
     super
     @render()
@@ -14,5 +16,8 @@ class GameStatus extends Spine.Controller
 
   hide: ->
     @el.hide()
+
+  pause: ->
+    @trigger 'pause'
 
 module.exports = GameStatus

@@ -1,9 +1,9 @@
 class GameStatus extends Spine.Controller
-  @extend(Spine.Events)
   className: 'status'
   elements:
     '.gameover':'gameover'
     '.finish':'finish'
+    '.pause':'pause'
   constructor: ->
     super
     @render()

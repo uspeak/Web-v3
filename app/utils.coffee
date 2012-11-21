@@ -7,7 +7,7 @@ class TimerInterval
 
   pause: ->
     window.clearInterval @timerId
-    @remaining -= new Date() - @start
+    # @remaining -= new Date() - @start
 
   resume: ->
     @start = new Date()
