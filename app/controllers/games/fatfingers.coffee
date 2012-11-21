@@ -9,7 +9,7 @@ class FatFingers extends Game
     'keyup .letter': 'deactivateLetter'
     'mouseup .letter': 'deactivateLetter'
     'mousedown .letter': 'activateLetter'
-    'touchmove .letter': 'activateLetter'
+    'touchstart .letter': 'activateLetter'
     'touchend .letter': 'deactivateLetter'
   constructor: ->
     super
