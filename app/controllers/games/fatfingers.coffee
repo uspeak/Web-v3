@@ -18,13 +18,13 @@ class FatFingers extends Game
 
   getRounds: (d) ->
     _.map d.W, (data,i) =>
-        round: i+1
-        word: data.w
-        match: data.m.split("")
-        match_shuffled: _.shuffle data.m.split("")
+      letters = data.m.split("")
+      round: i+1
+      word: data.w
+      match: letters
+      match_shuffled: _.shuffle letters
 
   clickLetter: (e) ->
-    @log 'CLICK'
     @type $(e.currentTarget)
 
   type: (el) ->
