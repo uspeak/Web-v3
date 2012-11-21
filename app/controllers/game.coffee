@@ -16,6 +16,8 @@ class Game extends Spine.Controller
     @header = new GameHeader()
     @menu = new GameMenu()
     @status = new GameStatus()
+    @status.bind 'gameover:show', => @onFinish()
+    @status.bind 'finish:show', => @onFinish()
 
   activate: ->
     # @reset()
@@ -43,6 +45,11 @@ class Game extends Spine.Controller
 
   getRounds: ->
     []
+
+  onFinish: ->
+    setTimeout =>
+      @navigate '/'
+    , 840
 
   animateRoundOut: (el) ->
     return if not el?.length
