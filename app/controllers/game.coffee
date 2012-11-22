@@ -20,6 +20,7 @@ class Game extends Spine.Controller
     @status.bind 'gameover:show', => @onFinish()
     @status.bind 'finish:show', => @onFinish()
     @menu.bind 'pause', => @pause()
+    @menu.bind 'resume', => @resume()
 
   activate: ->
     # @reset()
@@ -43,18 +44,18 @@ class Game extends Spine.Controller
     @el.empty()
 
   pause: ->
-    @log 'PRESSED PAUSE'
-    @paused = !@paused
-    if @paused 
-      @timer.pause()
-      @header.hide()
-      @rounds.transition(opacity:0)
-      @status.show('pause')
-    else
-      @timer.resume()
-      @header.show()
-      @rounds.transition(opacity:1)
-      @status.hide()
+    @el.addClass('paused')
+    @timer.pause()
+    @header.hide()
+    @rounds.transition(opacity:0)
+    @status.show('pause')
+
+  resume: ->
+    @el.removeClass('paused')
+    @timer.resume()
+    @header.show()
+    @rounds.transition(opacity:1)
+    @status.hide()
 
 
   loaded: (data) =>

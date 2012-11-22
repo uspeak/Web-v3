@@ -31,7 +31,15 @@
             cursor pointer
             &:hover 
                 transform scale(1.2)
-        a.pause
+        a.pause, a.play
             float right
+        a.play
+            display none
         a.exit
             text-indent -2px
+    
+    &.paused
+        a.play
+            display inline-block
+        a.pause
+            display none

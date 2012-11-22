@@ -2,6 +2,8 @@ class GameStatus extends Spine.Controller
   className: 'menu'
   events:
     'tap .pause':'pause'
+    'tap .play':'resume'
+
   constructor: ->
     super
     @render()
@@ -19,5 +21,8 @@ class GameStatus extends Spine.Controller
 
   pause: ->
     @trigger 'pause'
+
+  resume: ->
+    @trigger 'resume'
 
 module.exports = GameStatus
