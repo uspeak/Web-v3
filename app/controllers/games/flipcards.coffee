@@ -47,7 +47,9 @@ class FlipCards extends Game
         el.find('.back').css(@styles.selected)
         @selectedCard = el
     else
-        if @selectedCard.data('word') == el.data('word')
+        correct = @selectedCard.data('word') == el.data('word')
+        @addInfo(correct)
+        if correct
             @selectedCard.find('.back').css(@styles.normal)
             el.add(@selectedCard).addClass('matched').find('.back').transition(
                 perspective: '400px',
@@ -63,5 +65,20 @@ class FlipCards extends Game
         else
            el.add(@selectedCard).find('.back').css(@styles.wrong).transition(@styles.normal)
         delete @selectedCard
-  
+
+
+  addInfo: (correct) ->
+    id = @data.W[@round].id
+    d = _.find @dataPlayed, (W)->
+      W.id == id
+    r = 
+      id: id
+      round: Math.floor(@round/6)
+      ref: if correct then 1 else 2
+    if d
+      _.extend d, r
+    else
+      @dataPlayed.push r
+
+
 module.exports = FlipCards
