@@ -58,8 +58,6 @@ class Resource extends Model
 
   constructor: ->
     super
-    after =  => 
-      Spine.trigger('ajax:after')
     @route = new Route(@url)
     for name, action of @actions
       # @log name, action
@@ -68,12 +66,16 @@ class Resource extends Model
         if not hasBody
           params = data
           data = null
+        trigger = action.trigger != false
         # @log action.params, @route.url(action.params)
+        after =  => 
+          Spine.trigger('ajax:after') if trigger
         @ajaxQueue(
           params,
           type: action.method or 'GET',
           data: if data then JSON.stringify(data) else null,
           url: @route.url( _.extend({}, action.params, params) )
+          trigger: trigger
         ).done((data, status, xhr) =>
           # @log '********LOADED', data, status, xhr, action.done
           # after()
@@ -95,7 +97,7 @@ class Resource extends Model
     return promise unless Ajax.enabled
 
     settings = @ajaxSettings(params, defaults)
-    Spine.trigger('ajax:before')
+    Spine.trigger('ajax:before') if defaults.trigger
     request = (next) ->
       jqXHR = $.ajax(settings)
                 .done(deferred.resolve)

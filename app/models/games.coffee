@@ -14,7 +14,7 @@ class Played extends Resource
     send:
       done: 'game:played'
       method: 'POST'
-
+      trigger: false
 
 Games.Played = Played
 
