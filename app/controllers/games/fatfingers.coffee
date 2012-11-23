@@ -27,6 +27,7 @@ class FatFingers extends Game
   clickLetter: (e) ->
     @type $(e.currentTarget)
 
+  
   type: (el) ->
     letter = el.text().trim()
     return if el.hasClass('completed')
@@ -39,8 +40,12 @@ class FatFingers extends Game
       el.stop().transition opacity:0, =>
         if nextType.next().length == 0
           @addPoints(100)
+          @dataPlayed.push
+            id: @data.W[@round].id
+            ref: @errors+1
           @goRound(@round+1)
     else
+      @errors++
       nextType.css(color:'red').stop().transition(opacity:0)
     nextType.text(letter)
 
@@ -48,6 +53,9 @@ class FatFingers extends Game
   #   _.extend super,
   #     variationImage: @variation==2
   #     variationWord: @variation==1
+  goRound: ->
+    super
+    @errors = 0
 
   keypress: (e) ->
     return if not @isActive()
