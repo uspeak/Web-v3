@@ -70,10 +70,10 @@ class FlipCards extends Game
   addInfo: (correct) ->
     id = @data.W[@round].id
     d = _.find @dataPlayed, (W)->
-      W.id == id
+      W.id == id and W.round == @round
     r = 
       id: id
-      round: Math.floor(@round/6)
+      round: @round
       ref: if correct then 1 else 2
     if d
       _.extend d, r
