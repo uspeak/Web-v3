@@ -1,7 +1,7 @@
 Resource = require 'models/resource'
 
 class User extends Resource
-  url: 'http://v4.uspeakapp.com/users/:controller.json'
+  url: 'http://v5.uspeakapp.com/users/:controller.json'
   actions:
     register:
       method: "POST"

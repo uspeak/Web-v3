@@ -14,7 +14,7 @@ class GameStatus extends Spine.Controller
 
   show: (status) ->
     @el.show()
-    @el.css(y:100,opacity:0,display:'block').transition(y:0, opacity:1)
+    @el.stop().css(y:100,opacity:0,display:'block').transition(y:0, opacity:1)
 
   hide: ->
     @el.hide()

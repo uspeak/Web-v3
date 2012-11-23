@@ -1,4 +1,5 @@
 GamesResource = require 'models/games'
+PlayedResource = GamesResource.Played
 GameHeader = require 'controllers/game.header'
 GameStatus = require 'controllers/game.status'
 GameMenu = require 'controllers/game.menu'
@@ -14,6 +15,7 @@ class Game extends Spine.Controller
     super
     @resource = new GamesResource()
     @resource.bind 'game:loaded', @loaded
+    @playedResource = new PlayedResource()
     @header = new GameHeader()
     @menu = new GameMenu()
     @status = new GameStatus()
@@ -27,7 +29,17 @@ class Game extends Spine.Controller
     @resource.get
       game: @id
     super
-  
+
+  sendPlayed: ->
+    @playedResource.send
+      idg: @id
+      idv: @variation
+      pts: @points
+      instance: @instance
+      langdir: "2"
+      W: @dataPlayed
+      stime: @seconds - @remainSeconds
+
   reset: ->
     @log 'RESETING'
     @round = null
@@ -88,7 +100,9 @@ class Game extends Spine.Controller
       @round = round
       @$round = @rounds.eq(@round)
     else
+      # Game ended
       @reset()
+      @sendPlayed()
 
   gameOver: ->
     @goRound()
@@ -107,24 +121,29 @@ class Game extends Spine.Controller
     rounds: @getRounds @data
     
   setData: (@data) ->
-    @seconds = seconds = parseInt @data.seconds
+    #Init Game Data
+    @seconds = @remainSeconds = parseInt @data.seconds
     @variation = parseInt @data.vid
     @instance = parseInt @data.instance
     @points = 0
-    @header.setSeconds seconds
+    @header.setSeconds @remainSeconds
     @header.setPoints 0
+    @dataPlayed = []
     @timer = new Utils.TimerInterval => 
-      seconds--
-      @header.setSeconds seconds
-      if seconds is 0
+      @remainSeconds--
+      @header.setSeconds @remainSeconds
+      if @remainSeconds is 0
         @timer.pause() 
         @gameOver()
     , 1000
 
+    # Append to DOM
     @html require(@template)(@context())
     @prepend @header, @status, @menu
     @header.show()
     @menu.show()
+
+    # Init Game
     @goRound 0
 
 module.exports = Game

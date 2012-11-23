@@ -13,7 +13,7 @@ class GameStatus extends Spine.Controller
 
   show: (status) ->
     @el.show()
-    @[status].css(scale:0,display:'block').transition(scale:1, =>
+    @[status].stop().css(scale:0,display:'block').transition(scale:1, =>
       @trigger "#{status}:show"
     )
     @active = status

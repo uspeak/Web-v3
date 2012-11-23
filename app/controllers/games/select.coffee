@@ -16,7 +16,16 @@ class Select extends Game
   choose: (e) ->
     return if not @canChoose
     el = $(e.target)
-    @addPoints(100) if el.is('.correct')
+    correct = el.is('.correct')
+    # Add points
+    @addPoints(100) if correct
+
+    # Add game info
+    @dataPlayed.push
+      id: @data.W[@round].id
+      ref: if correct then 1 else 2
+
+    # Animate and go to next round
     el.find('i').show().css(scale:0).transition scale:1, 200,
       => setTimeout (=> @goRound(@round+1)), 340
     @canChoose = false
