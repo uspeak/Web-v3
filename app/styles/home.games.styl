@@ -4,25 +4,31 @@
     list-style none
     padding 0
     margin 0
+    margin-top 15px
     li
         width:49.5%
         padding 0
-        margin 20px 0
+        margin 18px 0
         display: inline-block
         text-align center
         position relative
+        color #888
         b
             display block
             font-weight normal
             font-size 1.5em
-            color #666
         img
             max-width 90%
+            opacity .7
     a
         text-decoration none
+        transition color .1s ease-out
+        color #666
         img
             transition all .1s ease-out
             opacity .8
-        &:hover img
-            opacity 1
-            transform scale(1.1)
+        &:hover
+            color #444
+            img
+                opacity 1
+                transform scale(1.1)
