@@ -13,10 +13,11 @@ def sync():
 def build():
     commit_msg = 'Updated source'
     local('brunch build -c cordova-config --minify')
-    with cd('build/uspeak-cordova/'):
+    with lcd('build/uspeak-cordova/'):
         local('git add .')
         local('git commit -m "%s"'%commit_msg)
-        local('git push')
+        local('git push -u origin master')
+    local('git submodule update')
 
 @hosts('syrus@uspeakapp.com')
 def restart():
