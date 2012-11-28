@@ -14,8 +14,8 @@ class App extends Spine.Stack
 
   constructor: ->
     super
-    @route "/", => 
-        @navigate("/home")
+    # @route "/", => 
+    #     @navigate("/home")
 
     @navigate("/home")
     @user = new User()
@@ -25,16 +25,13 @@ class App extends Spine.Stack
     @initConfig()
 
   initConfig: ->
-    Spine.Route.setup
-      # history: false
-      shim: true
-    Spine.Model.host = 'http://v4.uspeakapp.com/'
+    Spine.Model.host = 'http://v5.uspeakapp.com/'
     $ = @$
     $('a').live 'click', ->
         href = $(@).attr('href')
         Spine.Route.navigate href if href
         false
-    # $(document).on "touchmove", (e)-> e.preventDefault()
+    $(".wide-screen").on "touchmove", (e)-> e.preventDefault()
     soundManager.setup
         url: '/swf/',
         preferFlash: false
