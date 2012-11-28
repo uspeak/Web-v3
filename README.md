@@ -15,6 +15,30 @@ Para correr el servidor de prueba ejecuta `npm start`.
 
 Para publicar todos los cambios en el servidor de uSpeak hay que instalar [Fabric](http://fabfile.org/) y entonces ejecutar `fab sync`.
 
+## Build
+
+Para hacer un build de un entorno (`cordova` o `web`) hay que ejecutar
+
+```
+fab build:env
+```
+
+...o para hacer un build de todos
+
+```
+fab build
+```
+
+
+## Modo desarrollo
+
+Para entrar en el entorno (`cordova` o `web`) de desarrollo basta hacer
+
+```
+fab debug:web
+```
+
+
 ## Resumen
 
     config.coffee
