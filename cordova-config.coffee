@@ -1,7 +1,7 @@
 exports.config =
   # See docs at http://brunch.readthedocs.org/en/latest/config.html.
   paths:
-    public: 'build/uspeak-web/'
+    public: 'build/uspeak-cordova/'
     test: 'spec'
     
   files:
@@ -16,7 +16,7 @@ exports.config =
           'vendor/scripts/common/jquery-1.7.2.js',
           'vendor/scripts/common/jquery.transit.js',
           'vendor/scripts/common/jquery.keyframe.js',
-          'vendor/scripts/common/modernizr.js',
+          # 'vendor/scripts/common/modernizr.js',
           'vendor/scripts/common/soundmanager2.js',
           'vendor/scripts/spine/spine.js',
           'vendor/scripts/spine/lib/ajax.js',
@@ -37,6 +37,7 @@ exports.config =
         before: [
           'vendor/styles/animate.css',
           'vendor/styles/normalize.css',
+          'vendor/styles/webfonts.css',
           'vendor/styles/font-awesome.css'
         ]
         after: [

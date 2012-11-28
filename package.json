@@ -1,7 +1,7 @@
 {
-  "author": "Your Name",
-  "name": "package-name",
-  "description": "Package description",
+  "author": "Syrus Akbary Nieto",
+  "name": "uSpeak",
+  "description": "Application for learning languages",
   "version": "0.0.1",
   "homepage": "",
   "repository": {
@@ -13,6 +13,8 @@
   },
   "scripts": {
     "start": "brunch watch --server",
+    "cstart": "brunch watch -c cordova-config -s",
+    "cbuild": "brunch build -c cordova-config --minify",
     "test": "brunch test"
   },
   "dependencies": {

@@ -139,7 +139,8 @@ class Game extends Spine.Controller
 
     # Append to DOM
     @html require(@template)(@context())
-    @prepend @header, @status, @menu
+    @prepend @header, @status
+    @append @menu
     @header.show()
     @menu.show()
 

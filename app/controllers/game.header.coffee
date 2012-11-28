@@ -36,9 +36,9 @@ class GameHeader extends Spine.Controller
     '.points':'points'
   styles:
     hide:
-      top:'-80px'
+      y:'-80px'
     show:
-      top: '0px'
+      y: '0px'
   constructor: ->
     super
     @el.css(@styles.hide)

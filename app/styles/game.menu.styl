@@ -3,14 +3,17 @@
 
 .game
     .menu
+        // position absolute
+        // bottom 0
+        // left 0
+        // padding 0 10px 10px
+        // right 0
         position absolute
         bottom 0
-        left 0
-        z-index 10001
-        padding 0 10px 10px
         right 0
+        left 0
         a
-            position relative
+            position absolute
             z-index 10001
             width 70px
             height @width
@@ -32,11 +35,14 @@
             &:hover 
                 transform scale(1.2)
         a.pause, a.play
-            float right
+            right 10px
+            bottom 10px
         a.play
             text-indent 2px
             display none
         a.exit
+            left 10px
+            bottom 10px
             text-indent -2px
 
     &.paused

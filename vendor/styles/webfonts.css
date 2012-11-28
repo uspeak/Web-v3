@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Delius';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Delius-Regular'), url(../fonts/webfonts/VhgncxckLThEfOZprZ74a-vvDin1pK8aKteLpeZ5c0A.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(../fonts/webfonts/MZ1aViPqjfvZwVD_tzjjkwLUuEpTyoUstqEm5AMlJo4.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Paytone One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Paytone One'), local('PaytoneOne'), url(../fonts/webfonts/D_d4Nj6jwG2cmUCLYeqgKSwlidHJgAgmTjOEEzwu1L8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(../fonts/webfonts/1EqTbJWOZQBfhZ0e3RL9uvesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}

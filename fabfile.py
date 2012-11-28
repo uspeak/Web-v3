@@ -10,6 +10,14 @@ def sync():
     rsync_project("/home/uspeak/games/v3", "public/",exclude=[])
     #restart()
 
+def build():
+    commit_msg = 'Updated source'
+    local('brunch build -c cordova-config --minify')
+    with cd('build/uspeak-cordova/'):
+        local('git add .')
+        local('git commit -m "%s"'%commit_msg)
+        local('git push')
+
 @hosts('syrus@uspeakapp.com')
 def restart():
     run('sudo /etc/init.d/httpd restart')

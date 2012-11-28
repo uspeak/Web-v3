@@ -36,7 +36,7 @@ class Select extends Game
 
   animateRoundIn: (el) ->
     el.addClass('active').css(x:'0')
-    el.find('.round').css(x:'100%').transition(x:0, 600)
+    el.find('.round').css(x:'100%').transition(x:0, delay:10, 600)
     el.find('.help').css(x:'100%').transition(x:0, delay: 100,600)
     el.find('.word-container').css(x:'100%').transition(x:0, delay: 300,600)
     el.find('.choices').css(x:'100%').transition(x:0, delay: 700,800)
