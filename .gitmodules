@@ -1,0 +1,3 @@
+[submodule "build/uspeak-cordova"]
+	path = build/uspeak-cordova
+	url = git@github.com:uspeak/uspeak-cordova.git
