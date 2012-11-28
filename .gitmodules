@@ -3,4 +3,4 @@
 	url = git@github.com:uspeak/uspeak-cordova.git
 [submodule "build/uspeak-web"]
 	path = build/uspeak-web
-	url = https://github.com/uspeak/uspeak-web.git
+	url = git@github.com:uspeak/uspeak-web.git
