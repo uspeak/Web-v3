@@ -15,25 +15,27 @@ def build(*args):
     envs = base_envs if not args else args
     for name in envs:
         commit_msg = 'Updated source of %s'%name
+        with lcd('app/assets/'):
+            local('cp index-%s.html index.html'%name)
         local('brunch build -c config-%s --minify'%name)
         with lcd('build/uspeak-%s/'%name):
-            local('mv index-%s.html index.html'%name)
             try:
                 local('rm index-*.html')
             except:
                 pass
             if name=='cordova':
-                local('rm -rf swf')
+                local('rm -rf swf/')
             local('git add .')
             local('git commit -m "%s"'%commit_msg)
             local('git push -u origin master')
     local('git submodule update')
+    local('git add .')
     local('git commit -m "Updated submodules"')
 
 def debug(name):
+    with lcd('app/assets/'):
+        local('cp index-%s.html index.html'%name)
     local('brunch watch -c config-%s -s'%name)
-    with lcd('build/uspeak-%s/'%name):
-        local('mv index-%s.html index.html'%name)
 
 @hosts('syrus@uspeakapp.com')
 def restart():

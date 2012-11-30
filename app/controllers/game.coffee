@@ -71,19 +71,23 @@ class Game extends Spine.Controller
 
 
   loaded: (data) =>
-    @setData data[0]
+    try
+      @setData data[0]
+    catch error
+      @log 'ERRORRRR'
+      @navigate('/home')
 
   getRounds: ->
     []
 
   onFinish: ->
     setTimeout =>
-      @navigate '/'
+      @navigate '/home'
     , 1500
 
   animateRoundOut: (el) ->
     return if not el?.length
-    el.transition(x:'-100%', opacity: .5)
+    el.transition(x:'-100%', opacity: .5, -> el.removeClass('active'))
 
   animateRoundIn: (el) ->
     return if not el?.length

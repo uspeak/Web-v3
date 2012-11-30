@@ -10,12 +10,19 @@
     <script>
         var exports = this;
         init = (function(){
+            Spine.Route.setup({shim:true})
             var App = require("application");
             exports.app = new App({el: $("body")});
         });
-        // document.addEventListener('deviceready',init);
         $(init);
+        // if (window.device) {
+        //     document.addEventListener('deviceready',function() {
+                
+        //         navigator.splashscreen.hide();
+        //     });
+        // }
+        //$(init);
     </script>
 </head>
-<body></body>
+<body class="cordova"></body>
 </html>

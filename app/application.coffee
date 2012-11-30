@@ -14,10 +14,13 @@ class App extends Spine.Stack
 
   constructor: ->
     super
-    # @route "/", => 
-    #     @navigate("/home")
-
-    @navigate("/home")
+    @cordova = (typeof window.device != "undefined")
+    @route "/", => 
+        @navigate("/home")
+    # @log 'CORDOVA', @cordova
+    # if @cordova
+    #     
+    @navigate("/")
     @user = new User()
     @user.setToken('testtoken')
     @loading = new Loading()
@@ -26,12 +29,15 @@ class App extends Spine.Stack
 
   initConfig: ->
     Spine.Model.host = 'http://v5.uspeakapp.com/'
+    if @cordova
+        Spine.Route.setup({shim:true})
     $ = @$
+    @games.el.add(@dialogs.el).add(@loading.el).on "touchmove", (e)-> e.preventDefault()
+
     $('a').live 'click', ->
         href = $(@).attr('href')
         Spine.Route.navigate href if href
         false
-    $(".wide-screen").on "touchmove", (e)-> e.preventDefault()
     soundManager.setup
         url: '/swf/',
         preferFlash: false
