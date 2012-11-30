@@ -50,5 +50,7 @@ exports.config =
     smushit: false
     path: 'images'
 
+  autoReload:
+    port: 9485
       # order:
       #   before: ['node_modules/jade/jade.js']
