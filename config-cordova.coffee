@@ -47,9 +47,9 @@ exports.config =
     templates:
       joinTo: 'javascripts/app.js'
 
-  imageoptimizer:
-    smushit: false
-    path: 'images'
+  # imageoptimizer:
+  #   smushit: false
+  #   path: 'images'
 
       # order:
       #   before: ['node_modules/jade/jade.js']

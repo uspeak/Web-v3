@@ -28,7 +28,7 @@ def build(*args):
             local('git add .')
             local('git commit -m "%s"'%commit_msg)
             local('git push -u origin master')
-    local('git submodule update')
+    # local('git submodule update')
     local('git add .')
     local('git commit -m "Updated submodules"')
 
