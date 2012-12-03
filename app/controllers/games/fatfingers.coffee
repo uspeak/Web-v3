@@ -6,7 +6,6 @@ class FatFingers extends Game
   name: 'fatfingers'
   events:
     'tap .letter': 'clickLetter'
-    'keyup .letter': 'deactivateLetter'
     'mouseup .letter': 'deactivateLetter'
     'mousedown .letter': 'activateLetter'
     'touchstart .letter': 'activateLetter'
@@ -54,6 +53,7 @@ class FatFingers extends Game
   #   _.extend super,
   #     variationImage: @variation==2
   #     variationWord: @variation==1
+  
   goRound: ->
     super
     @errors = 0
