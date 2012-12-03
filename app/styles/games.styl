@@ -1,13 +1,12 @@
 @import 'nib'
-@import 'application'
 @import '_ribbon'
 @import '_vars'
 
 .games
-    @extends .wide-screen
+    // @extends .wide-screen
     user-select: none
 .game
-    @extends .wide-screen
+    // @extends .wide-screen
     display none
     .round, .help
         font-family write-font
@@ -31,13 +30,22 @@
         position relative
         box-shadow:0px 1px 8px rgba(0,0,0,0.2);
         font-family header-font
-        height 61px
+        height 40px
         line-height 38px
         padding-left 20px
         padding-right 10px
+        font-size 1.2em
+        @media(max-width:480px)
+            &  
+                font-size 1em
+                background: url(/images/ribbon-sewn.png) repeat-x 0 43px, linear-gradient(top,rgb(98,171,207),rgb(77,157,195))
+                position relative
+                box-shadow:0px 1px 8px rgba(0,0,0,0.2);
+                font-family header-font
+                height 28px
+                line-height 24px
         .points
             float left
-            font-size .8em
             b
                 font-weight normal
                 opacity .5
@@ -45,14 +53,14 @@
             float right
             list-style none
         .time
-            font-size 1.3em
-            line-height 35px
+            font-size 1.8em
             width 110px
             text-align left
             display inline-block
             b
                 font-weight normal
                 opacity .5
+
     .image
         background: white;
         padding: 2% 1% 4%;

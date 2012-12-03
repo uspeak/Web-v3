@@ -2,6 +2,7 @@ class GameStatus extends Spine.Controller
   className: 'menu'
   events:
     'tap .pause':'pause'
+    'click .pause':'pause'
     'tap .play':'resume'
 
   constructor: ->
@@ -20,6 +21,7 @@ class GameStatus extends Spine.Controller
     @el.hide()
 
   pause: ->
+    @log 'CLICK PAUSE'
     @trigger 'pause'
 
   resume: ->

@@ -11,7 +11,7 @@ class Game extends Spine.Controller
     '.rounds>*':'rounds'
 
   constructor: ->
-    @className = "game-#{@name} game"
+    @className = "game-#{@name} game wide-screen"
     super
     @resource = new GamesResource()
     @resource.bind 'game:loaded', @loaded
@@ -142,6 +142,7 @@ class Game extends Spine.Controller
     , 1000
 
     # Append to DOM
+    @el.removeClass('paused')
     @html require(@template)(@context())
     @prepend @header, @status
     @append @menu
