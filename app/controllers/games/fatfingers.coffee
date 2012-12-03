@@ -29,7 +29,7 @@ class FatFingers extends Game
 
   
   type: (el) ->
-    letter = el.text().trim()
+    letter = el.text().trim() or " "
     return if el.hasClass('completed')
     nextType = @$round.find('.type span:not(.completed)').first()
     nextType.text(letter).css(color:'black', opacity:1)
