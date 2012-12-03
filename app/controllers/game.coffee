@@ -50,6 +50,7 @@ class Game extends Spine.Controller
     @status.hide()
     @header.hide()
     @menu.hide()
+    @content.html(false)
     if typeof @timer != "undefined"
       @timer.pause()
       delete @timer
