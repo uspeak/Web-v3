@@ -46,6 +46,7 @@ class FatFingers extends Game
           @goRound(@round+1)
     else
       @errors++
+      @kill()
       nextType.css(color:'red').stop().transition(opacity:0)
     nextType.text(letter)
 

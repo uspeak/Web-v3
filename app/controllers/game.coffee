@@ -125,18 +125,27 @@ class Game extends Spine.Controller
     @points += points
     @header.setPoints @points
 
+  kill: ->
+    @lifes -= 1
+    if @lifes == 0
+      @gameOver()
+    else
+      @header.setLifes @lifes
+
   context: ->
     variation: @variation,
     rounds: @getRounds @data
     
   setData: (@data) ->
     #Init Game Data
+    @lifes = 3
     @seconds = @remainSeconds = parseInt @data.seconds
     @variation = parseInt @data.vid
     @instance = parseInt @data.instance
     @points = 0
     @header.setSeconds @remainSeconds
     @header.setPoints 0
+    @header.setLifes @lifes
     @dataPlayed = []
     @timer = new Utils.TimerInterval => 
       @remainSeconds--

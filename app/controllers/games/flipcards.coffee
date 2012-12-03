@@ -63,7 +63,8 @@ class FlipCards extends Game
             )
             @addPoints(100)
         else
-           el.add(@selectedCard).find('.back').css(@styles.wrong).transition(@styles.normal)
+          @kill()
+          el.add(@selectedCard).find('.back').css(@styles.wrong).transition(@styles.normal)
         delete @selectedCard
 
 

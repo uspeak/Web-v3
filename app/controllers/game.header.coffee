@@ -34,6 +34,7 @@ class GameHeader extends Spine.Controller
   elements:
     '.time':'time'
     '.points':'points'
+    '.life':'lifes'
   styles:
     hide:
       y:'-80px'
@@ -52,6 +53,11 @@ class GameHeader extends Spine.Controller
 
   hide: ->
     @el.transition(@styles.hide)
+
+  setLifes: (lifes) ->
+    @lifes.removeClass('consumed').addClass((i) ->
+      'consumed' unless (i<lifes)
+    )
 
   setPoints: (points) ->
     # if not @pointsSound

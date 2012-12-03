@@ -18,7 +18,10 @@ class Select extends Game
     el = $(e.target)
     correct = el.is('.correct')
     # Add points
-    @addPoints(100) if correct
+    if correct
+      @addPoints(100)
+    else
+      @kill()
 
     # Add game info
     @dataPlayed.push

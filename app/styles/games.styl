@@ -52,6 +52,17 @@
         .lifes
             float right
             list-style none
+            margin 0
+            padding 0
+        .life
+            float left
+            .inactive
+                display none
+            &.consumed
+                .active
+                    display none
+                .inactive
+                    display block
         .time
             font-size 1.8em
             width 110px
