@@ -18,7 +18,6 @@ class App extends Spine.Stack
     @route "/", => 
         @navigate("/home")
     
-    @navigate("/") if (typeof window.device != "undefined")
     # @log 'CORDOVA', @cordova
     # if @cordova
     #     
@@ -33,10 +32,9 @@ class App extends Spine.Stack
     Spine.Model.host = 'http://v5.uspeakapp.com/'
     if @cordova
         Spine.Route.setup()
-        # 
+        @navigate("/") if (typeof window.device != "undefined")
     else
         Spine.Route.setup()
-
 
     $ = @$
     @games.el.add(@dialogs.el).add(@loading.el).on "touchmove", (e)-> e.preventDefault()
