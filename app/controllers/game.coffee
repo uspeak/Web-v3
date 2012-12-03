@@ -24,6 +24,10 @@ class Game extends Spine.Controller
     @menu.bind 'pause', => @pause()
     @menu.bind 'resume', => @resume()
 
+    @content = $('<div class="content"></div>')
+    # @prepend @header, @status
+    @append @header, @status, @content, @menu
+
   activate: ->
     # @reset()
     @resource.get
@@ -53,20 +57,20 @@ class Game extends Spine.Controller
   deactivate: ->
     super
     @reset()
-    @el.empty()
+    # @el.empty()
 
   pause: ->
     @el.addClass('paused')
     @timer.pause()
     @header.hide()
-    @rounds.transition(opacity:0)
+    @rounds.stop().transition(opacity:0)
     @status.show('pause')
 
   resume: ->
     @el.removeClass('paused')
     @timer.resume()
     @header.show()
-    @rounds.transition(opacity:1)
+    @rounds.stop().transition(opacity:1)
     @status.hide()
 
 
@@ -143,9 +147,13 @@ class Game extends Spine.Controller
 
     # Append to DOM
     @el.removeClass('paused')
-    @html require(@template)(@context())
-    @prepend @header, @status
-    @append @menu
+    # c = $('<div class="content"></div>')
+    @content.html require(@template)(@context())
+    # @content = @el.append(c) unless @content
+    # @prepend @header, @status
+    # @append @menu
+    @refreshElements()
+
     @header.show()
     @menu.show()
 
