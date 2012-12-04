@@ -32,7 +32,7 @@ class App extends Spine.Stack
     Spine.Model.host = 'http://v5.uspeakapp.com/'
     if @cordova
         Spine.Route.setup()
-        @navigate("/") if (typeof window.device != "undefined")
+        @navigate("/")
     else
         Spine.Route.setup()
 
