@@ -3,12 +3,8 @@ from fabric.contrib.project import rsync_project
 
 @hosts('syrus@uspeakapp.com')
 def sync():
-    local('brunch build --minify')
-    # gitignore = file('.gitignore')
-    # excludes = [line.strip() for line in gitignore.readlines()]
-    # excludes.append('.git/*')
-    rsync_project("/home/uspeak/games/v3", "public/",exclude=[])
-    #restart()
+    build('web')
+    rsync_project("/home/uspeak/games/v3", "build/uspeak-web/")
 
 def build(*args):
     base_envs = ['cordova']
