@@ -4,24 +4,27 @@
     <meta charset=utf-8>
     <title>uSpeak</title>
     <link rel="stylesheet" href="stylesheets/app.css" type="text/css">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0; user-scalable=0;"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Paytone+One|Delius' rel='stylesheet' type='text/css'>
+    <link rel="apple-touch-icon" href="images/icon-iphone.png" />
+<!--     <link rel="apple-touch-icon" sizes="72x72" href="images/icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="images/icon-iphone4.png" />
+ -->    <meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script>
+        window.brunch = window.brunch || {};
+        window.brunch['auto-reload'] = {enabled: true};
+    </script>
     <script src="javascripts/vendor.js"></script>
     <script src="javascripts/app.js"></script>
     <script>
         var exports = this;
-        init = (function(){
+        $(function(){
+            // Spine.Route.setup({history:true})
             var App = require("application");
             exports.app = new App({el: $("body")});
         });
-        $(init);
-        // if (window.device) {
-        //     document.addEventListener('deviceready',function() {
-                
-        //         navigator.splashscreen.hide();
-        //     });
-        // }
-        //$(init);
     </script>
 </head>
-<body class="cordova"></body>
+<body></body>
 </html>

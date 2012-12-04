@@ -26,7 +26,7 @@
         display block
     header
         @extends .ribbon
-        background: url(/images/ribbon-sewn.png) repeat-x 0 55px, linear-gradient(top,rgb(98,171,207),rgb(77,157,195))
+        background: url(/images/ribbon-sewn.png) repeat-x 0 55px, linear-gradient(top, #2FACCC,#2FACCC )
         position relative
         box-shadow:0px 1px 8px rgba(0,0,0,0.2);
         font-family header-font
@@ -38,7 +38,7 @@
         @media(max-width:480px)
             &  
                 font-size 1em
-                background: url(/images/ribbon-sewn.png) repeat-x 0 43px, linear-gradient(top,rgb(98,171,207),rgb(77,157,195))
+                background: url(/images/ribbon-sewn.png) repeat-x 0 43px, linear-gradient(top, #2FACCC,#2FACCC)
                 position relative
                 box-shadow:0px 1px 8px rgba(0,0,0,0.2);
                 font-family header-font
@@ -87,19 +87,16 @@
 
     .note
         cursor: pointer
-        padding .5em .2em
-        margin .35em .7em
+        margin .35em .3em
         text-align center
-        width 220px
-        min-width 40%
-        font-size 2em
+        width 235px
+        height 92px
+        line-height 98px
+        font-size 28px
         font-family write-font
         list-style none
-        border 1px solid #DCD8C1
-        box-shadow:0px 1px 3px rgba(79,75,65,0.4);
         display inline-block
-        background linear-gradient(top,rgb(250,249,241),rgb(247,244,221))
-        border-radius 0%/1%;
+        background url('../images/games/note.png') no-repeat center center
         color #656152
         position relative
         i
